@@ -1,0 +1,178 @@
+<?xml version="1.0"?>
+<project
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
+	xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>ramp.sample</groupId>
+		<artifactId>samples</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+	</parent>
+	<artifactId>spring-jersey-test</artifactId>
+	<packaging>war</packaging>
+	<name>spring-jersey-test Jersey Webapp</name>
+	<properties>
+		<jersey.version>1.18.1</jersey.version>
+		<spring.version>3.2.1.RELEASE</spring.version>
+		<glassfish.version>3.1.1</glassfish.version>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	</properties>
+	<dependencies>
+		<dependency>
+			<groupId>com.sun.jersey.contribs</groupId>
+			<artifactId>jersey-spring</artifactId>
+			<version>${jersey.version}</version>
+			<exclusions>
+				<exclusion>
+					<artifactId>spring-aop</artifactId>
+					<groupId>org.springframework</groupId>
+				</exclusion>
+				<exclusion>
+					<artifactId>spring-context</artifactId>
+					<groupId>org.springframework</groupId>
+				</exclusion>
+				<exclusion>
+					<artifactId>spring-beans</artifactId>
+					<groupId>org.springframework</groupId>
+				</exclusion>
+				<exclusion>
+					<artifactId>spring-web</artifactId>
+					<groupId>org.springframework</groupId>
+				</exclusion>
+				<exclusion>
+					<artifactId>spring-core</artifactId>
+					<groupId>org.springframework</groupId>
+				</exclusion>
+				<exclusion>
+					<artifactId>asm</artifactId>
+					<groupId>asm</groupId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+
+		<dependency>
+			<groupId>com.sun.jersey</groupId>
+			<artifactId>jersey-json</artifactId>
+			<version>${jersey.version}</version>
+		</dependency>
+
+		<dependency>
+			<artifactId>spring-web</artifactId>
+			<groupId>org.springframework</groupId>
+			<version>${spring.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-oxm</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>servlet-api</artifactId>
+			<version>2.5</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>jsp-api</artifactId>
+			<version>2.0</version>
+			<scope>provided</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.testng</groupId>
+			<artifactId>testng</artifactId>
+			<version>6.8.1</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-test</artifactId>
+			<version>${spring.version}</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.sun.jersey.jersey-test-framework</groupId>
+			<artifactId>jersey-test-framework-grizzly2</artifactId>
+			<version>${jersey.version}</version>
+			<scope>test</scope>
+		</dependency>
+		<!-- <dependency>
+			<groupId>org.mockito</groupId>
+			<artifactId>mockito-all</artifactId>
+			<version>1.9.5</version>
+			<scope>test</scope>
+		</dependency> -->
+
+		<!-- <dependency> <groupId>com.sun.jersey</groupId> <artifactId>jersey-servlet</artifactId> 
+			<version>${jersey.version}</version> </dependency> <dependency> <groupId>com.sun.jersey</groupId> 
+			<artifactId>jersey-json</artifactId> <version>${jersey.version}</version> 
+			</dependency> <dependency> <groupId>junit</groupId> <artifactId>junit</artifactId> 
+			<version>4.8.2</version> <scope>test</scope> </dependency> <dependency> <groupId>com.sun.jersey</groupId> 
+			<artifactId>jersey-client</artifactId> <version>${jersey.version}</version> 
+			<scope>test</scope> </dependency> <dependency> <groupId>org.glassfish.extras</groupId> 
+			<artifactId>glassfish-embedded-web</artifactId> <version>${glassfish.version}</version> 
+			<scope>test</scope> </dependency> -->
+	</dependencies>
+	<build>
+		<finalName>spring-jersey-test</finalName>
+		<plugins>
+			<plugin>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<inherited>true</inherited>
+				<configuration>
+					<source>1.6</source>
+					<target>1.6</target>
+				</configuration>
+			</plugin>
+			<!-- <plugin> <groupId>org.glassfish</groupId> <artifactId>maven-embedded-glassfish-plugin</artifactId> 
+				<version>${glassfish.version}</version> <dependencies> <dependency> <groupId>com.sun.jersey</groupId> 
+				<artifactId>jersey-servlet</artifactId> <version>${project.version}</version> 
+				</dependency> <dependency> <groupId>javax.servlet</groupId> <artifactId>javax.servlet-api</artifactId> 
+				<version>3.0.1</version> </dependency> </dependencies> <configuration> <goalPrefix>embedded-glassfish</goalPrefix> 
+				<app>/Users/rpalaniappan/git/ramp-sample/samples/target/${project.build.finalName}.war</app> 
+				<autoDelete>true</autoDelete> <port>8080</port> </configuration> </plugin> -->
+
+			<plugin>
+				<groupId>org.jvnet.jaxb2.maven2</groupId>
+				<artifactId>maven-jaxb2-plugin</artifactId>
+				<version>0.8.0</version>
+				<executions>
+					<execution>
+						<id>generate-domain-object</id>
+						<goals>
+							<goal>generate</goal>
+						</goals>
+						<configuration>
+							<strict>false</strict>
+							<schemaIncludes>
+								<value>schema.xsd</value>
+							</schemaIncludes>
+							<bindingIncludes>
+								<include>schema.xjb</include>
+							</bindingIncludes>
+							<extension>true</extension>
+							<generateDirectory>${project.build.directory}/generated-sources</generateDirectory>
+							<args>
+								<arg>-Xannotate</arg>
+							</args>
+							<plugins>
+								<plugin>
+									<groupId>org.jvnet.jaxb2_commons</groupId>
+									<artifactId>jaxb2-basics</artifactId>
+									<version>0.6.3</version>
+								</plugin>
+								<plugin>
+									<groupId>org.jvnet.jaxb2_commons</groupId>
+									<artifactId>jaxb2-basics-annotate</artifactId>
+									<version>0.6.3</version>
+								</plugin>
+							</plugins>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+</project>

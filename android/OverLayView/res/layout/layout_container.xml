@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <com.example.overlayview.OuterView1
+        android:id="@+id/outerView1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="25dip" >
+    </com.example.overlayview.OuterView1>
+
+    <com.example.overlayview.InnerView2
+        android:id="@+id/innerView2"
+        android:layout_width="match_parent"
+        android:layout_height="200dip"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:padding="35dip" />
+
+</merge>

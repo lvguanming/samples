@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="https://code.google.com/p/ramp-sample/source/browse/samples/spring-jersey/src/main/resources/schema.xsd"
+	xmlns:tns="https://code.google.com/p/ramp-sample/source/browse/samples/spring-jersey/src/main/resources/schema.xsd"
+	elementFormDefault="qualified">
+
+	<element name="User" type="tns:User"></element>
+	<element name="Users" type="tns:Users"></element>
+	<complexType name="User">
+		<sequence>
+			<element name="id" type="string"></element>
+			<element name="firstName" type="string"></element>
+			<element name="lastName" type="string"></element>
+		</sequence>
+	</complexType>
+	<complexType name="Users">
+		<sequence>
+			<element ref="tns:User" minOccurs="1" maxOccurs="unbounded"></element>
+		</sequence>
+	</complexType>
+
+
+	<element name="Student" type="tns:Student"></element>
+	<element name="Students" type="tns:Students"></element>
+	<complexType name="Student">
+		<complexContent>
+			<extension base="tns:User">
+				<sequence>
+					<element name="course" type="string"></element>
+				</sequence>
+			</extension>
+		</complexContent>
+	</complexType>
+	<complexType name="Students">
+		<sequence>
+			<element ref="tns:Student" minOccurs="1" maxOccurs="unbounded"></element>
+		</sequence>
+	</complexType>
+
+
+</schema>

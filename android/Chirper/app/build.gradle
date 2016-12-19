@@ -1,0 +1,71 @@
+apply plugin: 'android'
+
+
+android {
+    compileSdkVersion 19
+    buildToolsVersion "19.0.3"
+
+    signingConfigs {
+        debug {
+            storeFile file("/Users/rpalaniappan/.android/debug.keystore")
+        }
+
+        release {
+            storeFile file("/Users/rpalaniappan/.android/release.keystore")
+            storePassword "changeit"
+            keyAlias "androidrelease"
+            keyPassword "changeit"
+        }
+    }
+
+    defaultConfig {
+//        minSdkVersion 8
+        minSdkVersion 10
+        targetSdkVersion 19
+        versionCode 4
+        versionName "1.3"
+    }
+    buildTypes {
+        release {
+            runProguard false
+//            runProguard true //ALM doesn't work with proguard, so commenting it
+//            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
+            signingConfig signingConfigs.release
+        }
+    }
+
+    packagingOptions {
+        exclude 'META-INF/LICENSE.txt'
+    }
+}
+
+dependencies {
+    compile 'com.android.support:appcompat-v7:+'
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile 'org.twitter4j:twitter4j-core:4.0.1'
+}
+
+
+//Generate keystore
+//[rpalaniappan@BANL128a4f3d4:~/Downloads] $ keytool -keystore release.keystore -genkey -alias androidrelease
+//Enter keystore password:
+//Re-enter new password:
+//What is your first and last name?
+//  [Unknown]:  Rama Palaniappan
+//What is the name of your organizational unit?
+//  [Unknown]:
+//What is the name of your organization?
+//  [Unknown]:
+//What is the name of your City or Locality?
+//  [Unknown]:  Bangalore
+//What is the name of your State or Province?
+//  [Unknown]:  Karnataka
+//What is the two-letter country code for this unit?
+//  [Unknown]:  IN
+//Is CN=Rama Palaniappan, OU=Unknown, O=Unknown, L=Bangalore, ST=Karnataka, C=IN correct?
+//  [no]:  yes
+//
+//Enter key password for <androidrelease>
+//	(RETURN if same as keystore password):
+//Re-enter new password:
+

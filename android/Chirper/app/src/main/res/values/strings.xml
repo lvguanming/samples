@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+
+    <string name="dis_app_contentprovider_extension">rampchirperandroid</string>
+    <string name="dis_max_service_timeout_seconds">5</string>
+    <string name="dis_min_keep_temp_ids_seconds">60</string>
+
+    <string name="app_name">Chirper</string>
+    <string name="action_settings">Settings</string>
+    <string name="twitter_consumer_key">bspEDMK9iT8ACP8zBkrwAZwF7</string>
+    <string name="twitter_consumer_secret">g4tfF72f1qEiYPlShTzNJN1XUPJjTPhab8W4ds0lPUyNtUp7Q0</string>
+    <string name="twitter_access_token">80228152-OJyl1qQk9g94GMzHNEZolq3ujDEt60xmxtJ97SFsm</string>
+    <string name="twitter_access_token_secret">0dDumYe0rS62FvzmrsE1fY0zv8a6uGhb7g5S5t5NuSUbd</string>
+    <string name="search_twitter_hint">Query to search in Twitter</string>
+    <string name="search_twitter">Search Twitter</string>
+    <string name="search_text_view_label">Tweets for query:  </string>
+    <string name="default_search_query">Football</string>
+    <string name="title_activity_main">TwitterSearchActivity</string>
+    <string name="title_activity_twitter_search">TwitterSearchActivity</string>
+
+</resources>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	<bean id="dataSource"
+		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+
+		<property name="driverClassName" value="${sample.ramp.hibernatejpaspring.mysql.driver.class}" />
+		<property name="url" value="${sample.ramp.hibernatejpaspring.mysql.url}" />
+		<property name="username" value="${sample.ramp.hibernatejpaspring.mysql.user}" />
+		<property name="password" value="${sample.ramp.hibernatejpaspring.mysql.password}" />
+	</bean>
+</beans>
